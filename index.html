@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b2d">
+  <title>World Digital Library</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">W</span>
+      <span>WORLD <b>DIGITAL LIBRARY</b></span>
+    </a>
+    <nav>
+      <a href="#home">Beranda</a>
+      <a href="#catalog">Katalog</a>
+      <a href="#about">Tentang</a>
+      <button id="savedNav" class="nav-button">♡ Tersimpan</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR GATEWAY TO KNOWLEDGE</span>
+        <h1>One World.<br><em>Infinite Knowledge.</em></h1>
+        <p>
+          Jelajahi koleksi buku dari berbagai perpustakaan dan katalog
+          digital dunia dalam satu tempat.
+        </p>
+
+        <form id="searchForm" class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search"
+            placeholder="Cari judul buku, penulis, atau topik..."
+            autocomplete="off">
+          <button type="submit">Cari Buku</button>
+        </form>
+
+        <div class="popular">
+          <span>Populer:</span>
+          <button class="quick-search">History</button>
+          <button class="quick-search">Science</button>
+          <button class="quick-search">Philosophy</button>
+          <button class="quick-search">Technology</button>
+        </div>
+      </div>
+
+      <div class="hero-decoration">
+        <div class="book book-one"></div>
+        <div class="book book-two"></div>
+        <div class="book book-three"></div>
+        <div class="orbit">WDL</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong>Global</strong><span>Katalog Internasional</span></div>
+      <div><strong>4+</strong><span>Sumber Digital</span></div>
+      <div><strong>Free</strong><span>Akses Pencarian</span></div>
+      <div><strong>24/7</strong><span>Jelajahi Pengetahuan</span></div>
+    </section>
+
+    <section class="catalog-section" id="catalog">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">EXPLORE THE COLLECTION</span>
+          <h2>Jelajahi Perpustakaan</h2>
+          <p>Temukan bacaan dari berbagai sumber digital dunia.</p>
+        </div>
+        <select id="sortSelect" aria-label="Urutkan buku">
+          <option value="relevance">Paling relevan</option>
+          <option value="title">Judul A–Z</option>
+          <option value="newest">Terbaru</option>
+        </select>
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter active" data-source="all">Semua Sumber</button>
+        <button class="filter" data-source="Open Library">Open Library</button>
+        <button class="filter" data-source="Google Books">Google Books</button>
+        <button class="filter" data-source="Project Gutenberg">Gutenberg</button>
+        <button class="filter" data-source="Internet Archive">Internet Archive</button>
+      </div>
+
+      <div class="result-info">
+        <span id="resultCount">Menampilkan koleksi pilihan</span>
+        <span id="searchStatus"></span>
+      </div>
+
+      <div id="bookGrid" class="book-grid">
+        <div class="welcome-card">
+          <div class="welcome-icon">⌕</div>
+          <h3>Mulai perjalanan pengetahuanmu</h3>
+          <p>Gunakan kolom pencarian untuk menemukan buku dari katalog digital dunia.</p>
+        </div>
+      </div>
+
+      <button id="loadMore" class="load-more" hidden>Muat Lebih Banyak</button>
+    </section>
+
+    <section class="about-section" id="about">
+      <span class="eyebrow">ABOUT THE PROJECT</span>
+      <h2>Knowledge Should Be Accessible.</h2>
+      <p>
+        World Digital Library merupakan portal pencarian buku yang
+        menghubungkan berbagai katalog digital. Kami membantu pembaca
+        menemukan buku dan mengakses sumber aslinya secara legal.
+      </p>
+      <div class="source-list">
+        <span>Open Library</span>
+        <span>Google Books</span>
+        <span>Project Gutenberg</span>
+        <span>Internet Archive</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="brand-icon">W</span> WORLD DIGITAL LIBRARY</div>
+    <p>Explore. Discover. Learn.</p>
+    <small>© 2026 World Digital Library. Book data belongs to its respective providers.</small>
+  </footer>
+
+  <div class="modal" id="bookModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
