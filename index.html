@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101b2d">
+  <meta name="description" content="Jelajahi katalog buku digital dunia dalam satu tempat.">
   <title>World Digital Library</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,17 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
   <header class="navbar">
-    <a class="brand" href="#">
-      <span class="brand-icon">W</span>
-      <span>WORLD <b>DIGITAL LIBRARY</b></span>
+    <a class="brand" href="#home" aria-label="World Digital Library beranda">
+      <span class="brand-icon">W</span><span>WORLD <b>DIGITAL LIBRARY</b></span>
     </a>
-    <nav>
-      <a href="#home">Beranda</a>
-      <a href="#catalog">Katalog</a>
-      <a href="#about">Tentang</a>
-      <button id="savedNav" class="nav-button">♡ Tersimpan</button>
+    <nav aria-label="Navigasi utama">
+      <a href="#home">Beranda</a><a href="#catalog">Katalog</a><a href="#about">Tentang</a>
+      <button id="savedNav" class="nav-button" type="button">♡ Tersimpan <span id="savedCount">0</span></button>
     </nav>
   </header>
 
@@ -30,95 +27,56 @@
       <div class="hero-content">
         <span class="eyebrow">YOUR GATEWAY TO KNOWLEDGE</span>
         <h1>One World.<br><em>Infinite Knowledge.</em></h1>
-        <p>
-          Jelajahi koleksi buku dari berbagai perpustakaan dan katalog
-          digital dunia dalam satu tempat.
-        </p>
-
+        <p>Jelajahi koleksi buku dari berbagai perpustakaan dan katalog digital dunia dalam satu tempat.</p>
         <form id="searchForm" class="search-box">
-          <span>⌕</span>
-          <input id="searchInput" type="search"
-            placeholder="Cari judul buku, penulis, atau topik..."
-            autocomplete="off">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Cari judul buku, penulis, atau topik..." autocomplete="off" required>
           <button type="submit">Cari Buku</button>
         </form>
-
-        <div class="popular">
-          <span>Populer:</span>
-          <button class="quick-search">History</button>
-          <button class="quick-search">Science</button>
-          <button class="quick-search">Philosophy</button>
-          <button class="quick-search">Technology</button>
+        <div class="popular"><span>Populer:</span>
+          <button class="quick-search" type="button">History</button>
+          <button class="quick-search" type="button">Science</button>
+          <button class="quick-search" type="button">Philosophy</button>
+          <button class="quick-search" type="button">Technology</button>
         </div>
       </div>
-
-      <div class="hero-decoration">
-        <div class="book book-one"></div>
-        <div class="book book-two"></div>
-        <div class="book book-three"></div>
-        <div class="orbit">WDL</div>
+      <div class="hero-decoration" aria-hidden="true">
+        <div class="book book-one"></div><div class="book book-two"></div><div class="book book-three"></div><div class="orbit">WDL</div>
       </div>
     </section>
 
     <section class="stats">
       <div><strong>Global</strong><span>Katalog Internasional</span></div>
-      <div><strong>4+</strong><span>Sumber Digital</span></div>
-      <div><strong>Free</strong><span>Akses Pencarian</span></div>
+      <div><strong>4</strong><span>Sumber Digital</span></div>
+      <div><strong>Free</strong><span>Pencarian Katalog</span></div>
       <div><strong>24/7</strong><span>Jelajahi Pengetahuan</span></div>
     </section>
 
     <section class="catalog-section" id="catalog">
       <div class="section-heading">
-        <div>
-          <span class="eyebrow">EXPLORE THE COLLECTION</span>
-          <h2>Jelajahi Perpustakaan</h2>
-          <p>Temukan bacaan dari berbagai sumber digital dunia.</p>
-        </div>
+        <div><span class="eyebrow">EXPLORE THE COLLECTION</span><h2>Jelajahi Perpustakaan</h2><p>Temukan bacaan dari berbagai sumber digital dunia.</p></div>
         <select id="sortSelect" aria-label="Urutkan buku">
-          <option value="relevance">Paling relevan</option>
-          <option value="title">Judul A–Z</option>
-          <option value="newest">Terbaru</option>
+          <option value="relevance">Paling relevan</option><option value="title">Judul A–Z</option><option value="newest">Terbaru</option>
         </select>
       </div>
-
       <div class="filters" id="filters">
-        <button class="filter active" data-source="all">Semua Sumber</button>
-        <button class="filter" data-source="Open Library">Open Library</button>
-        <button class="filter" data-source="Google Books">Google Books</button>
-        <button class="filter" data-source="Project Gutenberg">Gutenberg</button>
-        <button class="filter" data-source="Internet Archive">Internet Archive</button>
+        <button class="filter active" data-source="all" type="button">Semua Sumber</button>
+        <button class="filter" data-source="Open Library" type="button">Open Library</button>
+        <button class="filter" data-source="Google Books" type="button">Google Books</button>
+        <button class="filter" data-source="Project Gutenberg" type="button">Gutenberg</button>
+        <button class="filter" data-source="Internet Archive" type="button">Internet Archive</button>
       </div>
-
-      <div class="result-info">
-        <span id="resultCount">Menampilkan koleksi pilihan</span>
-        <span id="searchStatus"></span>
-      </div>
-
+      <div class="result-info"><span id="resultCount">Menampilkan koleksi pilihan</span><span id="searchStatus" role="status" aria-live="polite"></span></div>
       <div id="bookGrid" class="book-grid">
-        <div class="welcome-card">
-          <div class="welcome-icon">⌕</div>
-          <h3>Mulai perjalanan pengetahuanmu</h3>
-          <p>Gunakan kolom pencarian untuk menemukan buku dari katalog digital dunia.</p>
-        </div>
+        <div class="welcome-card"><div class="welcome-icon">⌕</div><h3>Mulai perjalanan pengetahuanmu</h3><p>Gunakan kolom pencarian untuk menemukan buku dari katalog digital dunia.</p></div>
       </div>
-
-      <button id="loadMore" class="load-more" hidden>Muat Lebih Banyak</button>
+      <button id="loadMore" class="load-more" type="button" hidden>Muat Lebih Banyak</button>
     </section>
 
     <section class="about-section" id="about">
-      <span class="eyebrow">ABOUT THE PROJECT</span>
-      <h2>Knowledge Should Be Accessible.</h2>
-      <p>
-        World Digital Library merupakan portal pencarian buku yang
-        menghubungkan berbagai katalog digital. Kami membantu pembaca
-        menemukan buku dan mengakses sumber aslinya secara legal.
-      </p>
-      <div class="source-list">
-        <span>Open Library</span>
-        <span>Google Books</span>
-        <span>Project Gutenberg</span>
-        <span>Internet Archive</span>
-      </div>
+      <span class="eyebrow">ABOUT THE PROJECT</span><h2>Knowledge Should Be Accessible.</h2>
+      <p>World Digital Library merupakan portal pencarian buku yang menghubungkan berbagai katalog digital. Ketersediaan fitur baca mengikuti izin dan ketentuan penyedia buku.</p>
+      <div class="source-list"><span>Open Library</span><span>Google Books</span><span>Project Gutenberg</span><span>Internet Archive</span></div>
     </section>
   </main>
 
@@ -129,12 +87,29 @@
   </footer>
 
   <div class="modal" id="bookModal" aria-hidden="true">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-content">
-      <button class="modal-close" id="modalClose" aria-label="Tutup">×</button>
+    <div class="modal-backdrop" data-close="details"></div>
+    <section class="modal-content" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Tutup">×</button>
       <div id="modalBody"></div>
-    </div>
+    </section>
   </div>
+
+  <section class="reader" id="reader" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Pembaca buku">
+    <header class="reader-header">
+      <button id="readerBack" class="reader-back" type="button">← <span>Kembali ke katalog</span></button>
+      <div class="reader-heading"><strong id="readerTitle">Pembaca Buku</strong><small id="readerSource">World Digital Library Reader</small></div>
+      <a id="readerOriginal" class="reader-original" href="#" target="_blank" rel="noopener noreferrer">Sumber asli ↗</a>
+    </header>
+    <div class="reader-notice" id="readerNotice">Konten ditampilkan melalui layanan penyedia. Ketersediaan bergantung pada izin dan dukungan penyematan dari sumber.</div>
+    <div class="reader-stage">
+      <div id="readerFallback" class="reader-fallback" hidden>
+        <div class="reader-fallback-icon">📖</div><h2>Buku ini belum bisa dibaca langsung di sini</h2>
+        <p>Penyedia buku belum menyediakan tampilan baca yang dapat disematkan. Kamu tetap bisa membuka halaman resmi buku melalui tombol di bawah.</p>
+        <a id="readerFallbackLink" href="#" target="_blank" rel="noopener noreferrer" class="primary-link">Buka di penyedia buku ↗</a>
+      </div>
+      <iframe id="readerFrame" title="Konten buku" src="about:blank" referrerpolicy="no-referrer" allow="fullscreen"></iframe>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
